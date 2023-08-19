@@ -1,0 +1,40 @@
+* {
+  margin: 30px;
+  padding: 0;
+}
+
+.heading {
+  color: #fff;
+  font-family: Inter;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.detailsSize{
+    width: 30%;
+    padding: 10px;
+    background-color: black;
+    border: 1px solid white;
+    margin: 10px;
+    color: white;
+}
+.btn{
+    width: 30%;
+    margin-left: 40px;
+}
+.search{
+    width: 90%;
+    padding:10px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+
+}
+.searchBar{
+    width: 100%;
+    padding:10px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+}
