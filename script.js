@@ -6,7 +6,7 @@ function getData(e) {
   e.preventDefault();
 
   const dataObject = {
-    id: document.getElementById((count += 1)),
+    id: count=count+1,
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     gpa: document.getElementById("gpa").value,
@@ -16,6 +16,7 @@ function getData(e) {
 
   studentData.push(dataObject);
   console.log(studentData);
+  
   let tableData = " ";
   studentData.map((i, index) => {
     tableData += `
@@ -23,8 +24,8 @@ function getData(e) {
           <th scope="row">${i.id}</th>
           <td>${i.name}</td>
           <td>${i.email}</td>
-          <td>${i.gpa}</td>
           <td>${i.age}</td>
+          <td>${i.gpa}</td>
           <td >${i.degree} <i class="bi bi-pencil-square"></i><i class="bi bi-trash3"></i></td>
           </tr>
         `;
@@ -49,8 +50,8 @@ searchBar.addEventListener("input", (e) => {
   <th scope="row">${i.id}</th>
   <td>${i.name}</td>
   <td>${i.email}</td>
-  <td>${i.gpa}</td>
   <td>${i.age}</td>
+  <td>${i.gpa}</td>
   <td>${i.degree} <i class="bi bi-pencil-square"></i> <i class="bi bi-trash3"></i></td>
   </tr>
   `;
