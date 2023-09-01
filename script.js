@@ -6,7 +6,7 @@ function getData(e) {
   e.preventDefault();
 
   const dataObject = {
-    id: count=count+1,
+    id: (count = count + 1),
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     gpa: document.getElementById("gpa").value,
@@ -16,7 +16,7 @@ function getData(e) {
 
   studentData.push(dataObject);
   console.log(studentData);
-  
+
   let tableData = " ";
   studentData.map((i, index) => {
     tableData += `
@@ -26,9 +26,10 @@ function getData(e) {
           <td>${i.email}</td>
           <td>${i.age}</td>
           <td>${i.gpa}</td>
-          <td >${i.degree} <i class="bi bi-pencil-square"></i><i class="bi bi-trash3"></i></td>
+          <td >${i.degree} <i class="bi bi-pencil-square" onclick="editStudentData(${index})></i><i class="bi bi-trash3 deleteBtn" onclick="deleteStudentData(${index})"></i></td>
           </tr>
         `;
+        console.log("index",index)
   });
   document.querySelector(".tableRows").innerHTML = tableData;
 }
@@ -44,7 +45,7 @@ searchBar.addEventListener("input", (e) => {
     );
   });
   let filteredStudentList = "";
-  filteredStudients.map((i) => {
+  filteredStudients.map((i, index) => {
     filteredStudentList += `
   <tr>
   <th scope="row">${i.id}</th>
@@ -52,9 +53,30 @@ searchBar.addEventListener("input", (e) => {
   <td>${i.email}</td>
   <td>${i.age}</td>
   <td>${i.gpa}</td>
-  <td>${i.degree} <i class="bi bi-pencil-square"></i> <i class="bi bi-trash3"></i></td>
+  <td>${i.degree} <i class="bi bi-pencil-square" onclick="editStudentData(${index})"></i> <i class="bi bi-trash3 deleteBtn" onclick="deleteStudentData(${index})"></i></td>
+  </tr>
+ 
+  `;
+  console.log("index",index)
+  });
+  document.querySelector(".tableRows").innerHTML = filteredStudentList;
+});
+
+function deleteStudentData(index) {
+  studentData.splice(index, 1);
+  console.log(index)
+  let filteredStudentList = "";
+  studentData.forEach((i, index) => {
+    filteredStudentList += `
+  <tr>
+  <th scope="row">${i.id}</th>
+  <td>${i.name}</td>
+  <td>${i.email}</td>
+  <td>${i.age}</td>
+  <td>${i.gpa}</td>
+  <td>${i.degree} <i class="bi bi-pencil-square" onclick=""></i> <i class="bi bi-trash3 deleteBtn" onclick="deleteStudentData(${index})"></i></td>
   </tr>
   `;
   });
   document.querySelector(".tableRows").innerHTML = filteredStudentList;
-});
+}
